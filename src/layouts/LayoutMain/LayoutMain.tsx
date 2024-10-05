@@ -1,9 +1,11 @@
+import NavBar from '@/components/NavBar/NavBar';
 import React from 'react';
 
-export const LayoutMain = ({children}: React.PropsWithChildren) => {
+export const LayoutMain = ({ children }: React.PropsWithChildren) => {
     return (
-        <div className="p-4">
-            {children}
-        </div>
+        <>
+            <NavBar></NavBar>
+            <div className="p-4">{children}</div>
+        </>
     );
 };
