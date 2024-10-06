@@ -15,7 +15,8 @@ export const COLLECTION_SERVICE_MOCK: CollectionServiceApi = {
                     }
                     return MOCK_COLLECTION_STANDARD;
                 },
-                delayMs: 1000,
+                // delayMs: 1000,
+                delayMs: 0,
             },
             collectionId
         ),

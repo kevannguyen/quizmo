@@ -4,6 +4,7 @@ export interface CollectionServiceApi {
 
 export interface QuizCollection {
     id: string;
+    name: string;
     questions: QuizQuestion[];
 }
 

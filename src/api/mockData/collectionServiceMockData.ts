@@ -2,110 +2,108 @@ import { QuizCollection } from '../services/collectionService/interfaces';
 
 export const MOCK_COLLECTION_EMPTY: QuizCollection = {
     id: 'test-collection-empty',
+    name: 'Empty Test Collection',
     questions: [],
 };
 
 export const MOCK_COLLECTION_STANDARD: QuizCollection = {
     id: 'test-collection-standard',
+    name: 'Standard Test Collection',
     questions: [
         {
-            question:
-                'This is an example question. What is the answer to this sample question?',
+            question: 'What is the medical term for high blood pressure?',
             responses: [
-                { response: 'Answer BLUE', correct: true },
-                { response: 'Answer RED' },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW' },
+                { response: 'Hypotension' },
+                { response: 'Hypertension', correct: true },
+                { response: 'Bradycardia' },
+                { response: 'Tachycardia' },
+            ],
+        },
+        {
+            question: "What does the prefix 'hemi-' mean?",
+            responses: [
+                { response: 'Whole' },
+                { response: 'Half', correct: true },
+                { response: 'Three' },
+                { response: 'One-fourth' },
+            ],
+        },
+        {
+            question: "What is the meaning of 'cyanosis'?",
+            responses: [
+                { response: 'Yellowing of the skin' },
+                { response: 'Blue discoloration of the skin', correct: true },
+                { response: 'Redness of the skin' },
+                { response: 'Darkening of the skin' },
             ],
         },
         {
             question:
-                'This is an example question. What is the answer to this sample question?',
+                'Which medical term refers to the surgical removal of a body part?',
             responses: [
-                { response: 'Answer BLUE' },
-                { response: 'Answer RED', correct: true },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW' },
+                { response: 'Excision', correct: true },
+                { response: 'Incision' },
+                { response: 'Injection' },
+                { response: 'Infiltration' },
+            ],
+        },
+        {
+            question: 'What is the medical term for difficulty breathing?',
+            responses: [
+                { response: 'Dyspnea', correct: true },
+                { response: 'Apnea' },
+                { response: 'Tachypnea' },
+                { response: 'Bradypnea' },
             ],
         },
         {
             question:
-                'This is an example question. What is the answer to this sample question?',
+                "Which of the following means 'inflammation of the liver'?",
             responses: [
-                { response: 'Answer BLUE' },
-                { response: 'Answer RED' },
-                { response: 'Answer GREEN', correct: true },
-                { response: 'Answer YELLOW' },
+                { response: 'Gastritis' },
+                { response: 'Hepatitis', correct: true },
+                { response: 'Nephritis' },
+                { response: 'Carditis' },
+            ],
+        },
+        {
+            question: "What does the suffix '-ectomy' mean?",
+            responses: [
+                { response: 'Surgical repair' },
+                { response: 'Surgical removal', correct: true },
+                { response: 'Study of' },
+                { response: 'Condition of' },
             ],
         },
         {
             question:
-                'This is an example question. What is the answer to this sample question?',
+                'What is the medical term for an abnormally low heart rate?',
             responses: [
-                { response: 'Answer BLUE' },
-                { response: 'Answer RED' },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW', correct: true },
+                { response: 'Bradycardia', correct: true },
+                { response: 'Tachycardia' },
+                { response: 'Arrhythmia' },
+                { response: 'Fibrillation' },
             ],
         },
         {
-            question:
-                'This is an example question. What is the answer to this sample question?',
+            question: "What does the term 'hemiplegia' refer to?",
             responses: [
-                { response: 'Answer BLUE', correct: true },
-                { response: 'Answer RED' },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW' },
+                {
+                    response: 'Paralysis of one side of the body',
+                    correct: true,
+                },
+                { response: 'Total body paralysis' },
+                { response: 'Paralysis of the lower limbs' },
+                { response: 'Paralysis of the upper limbs' },
             ],
         },
         {
-            question:
-                'This is an example question. What is the answer to this sample question?',
+            question: "What does the prefix 'brady-' mean?",
             responses: [
-                { response: 'Answer BLUE' },
-                { response: 'Answer RED', correct: true },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW' },
-            ],
-        },
-        {
-            question:
-                'This is an example question. What is the answer to this sample question?',
-            responses: [
-                { response: 'Answer BLUE' },
-                { response: 'Answer RED' },
-                { response: 'Answer GREEN', correct: true },
-                { response: 'Answer YELLOW' },
-            ],
-        },
-        {
-            question:
-                'This is an example question. What is the answer to this sample question?',
-            responses: [
-                { response: 'Answer BLUE' },
-                { response: 'Answer RED' },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW', correct: true },
-            ],
-        },
-        {
-            question:
-                'This is an example question. What is the answer to this sample question?',
-            responses: [
-                { response: 'Answer BLUE', correct: true },
-                { response: 'Answer RED' },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW' },
-            ],
-        },
-        {
-            question:
-                'This is an example question. What is the answer to this sample question?',
-            responses: [
-                { response: 'Answer BLUE' },
-                { response: 'Answer RED', correct: true },
-                { response: 'Answer GREEN' },
-                { response: 'Answer YELLOW' },
+                { response: 'Fast' },
+                { response: 'Slow', correct: true },
+                { response: 'Normal' },
+                { response: 'Above' },
             ],
         },
     ],
