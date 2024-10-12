@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useQuery } from '@tanstack/react-query';
@@ -13,6 +14,20 @@ import { atom, useAtom } from 'jotai';
 import _ from 'lodash';
 
 const selectedResponsesAtom = atom<(number | null)[] | null>(null);
+const selectedResponseIndexAtom = (questionIndex: number) =>
+    atom(
+        (get) => get(selectedResponsesAtom)?.[questionIndex] ?? null,
+        (get, set, newSelectedResponseIndex) => {
+            const selectedResponses = get(selectedResponsesAtom);
+            if (!selectedResponses) return;
+
+            const newSelectedRespones = [...selectedResponses];
+            newSelectedRespones[questionIndex] =
+                newSelectedResponseIndex as any;
+            set(selectedResponsesAtom, newSelectedRespones);
+        }
+    );
+// const quizFinishedAtom = atom<boolean>((get) => {get(selectedResponsesAtom)})
 
 // Shuffles list in-place
 const shuffleList = (items: unknown[]) => {
@@ -57,6 +72,12 @@ export const CollectionQuiz = () => {
     const isQuizFinished =
         (selectedResponses ?? [null]).filter((response) => response === null)
             .length === 0;
+
+    console.log('lolol isquizfinished = ', isQuizFinished);
+
+    if (isQuizFinished) {
+        console.log('lolol quiz finished!');
+    }
 
     useEffect(() => {
         if (!collectionData || collectionData?.questions?.length === 0) {
@@ -142,21 +163,18 @@ const QuizResponseOption = ({
     questionIndex: number;
     responseIndex: number;
 }) => {
-    const [selectedResponses, setSelectedResponses] = useAtom(
-        selectedResponsesAtom
+    const selectedResponseIndexAtomMemo = useMemo(
+        () => selectedResponseIndexAtom(questionIndex),
+        [questionIndex]
     );
-    const selectedResponseIndex = selectedResponses?.[questionIndex] ?? null;
+    const [selectedResponseIndex, setSelectedResponseIndex] = useAtom(
+        selectedResponseIndexAtomMemo
+    );
 
     const handleSelect = () => {
-        if (!selectedResponses) return;
-
-        const newSelectedResponses = [...selectedResponses];
-        const currentSelection = newSelectedResponses[questionIndex];
-
-        newSelectedResponses[questionIndex] =
-            currentSelection === responseIndex ? null : responseIndex;
-
-        setSelectedResponses(newSelectedResponses);
+        setSelectedResponseIndex(
+            selectedResponseIndex === responseIndex ? null : responseIndex
+        );
     };
 
     return (
